@@ -1,5 +1,6 @@
 package kevinpham.employeemanager.service;
 
+import kevinpham.employeemanager.exception.UserNotFoundException;
 import kevinpham.employeemanager.model.Employee;
 import kevinpham.employeemanager.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class EmployeeService {
     }
 
 
-    public Employee findEmployeeByIf(Long id){
+    public Employee findEmployeeByIf(Long id) {
         return employeeRepo.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
